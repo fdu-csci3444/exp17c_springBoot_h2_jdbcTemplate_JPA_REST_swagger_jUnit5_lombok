@@ -87,8 +87,10 @@ public class StaffRestController {
 		staffRepository.deleteById(id);
 	}
 	
+	// curl -i http://localhost:8888/rest/v1/staff/1
 	// curl -i http://localhost:8888/rest/v1/staff/findById/1
-	@GetMapping("/findById/{id}")
+	// NOTE ilker in below assigning multiple URLs(paths) to single method. Also NOTE 1st url is more correct REST syntax
+	@GetMapping({"/{id}", "/findById/{id}"})
 	public  Optional<Staff> findById(@PathVariable Long id) {
 		Optional<Staff> staff = staffRepository.findById(id);
 		return staff;

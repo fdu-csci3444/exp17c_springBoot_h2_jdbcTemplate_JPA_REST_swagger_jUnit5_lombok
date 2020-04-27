@@ -42,6 +42,7 @@ in a class via lombok annotations
 - see exp17c.jpa.model.Staff 
 
 ## creating REST webservice api end points(resources)
+- see exp17c.rest.EmployeeRestController
 - see exp17c.rest.StaffRestController
 
 ## jUnit5 integration with SpringBoot
@@ -66,7 +67,9 @@ in a class via lombok annotations
   - add a "Docket" Spring Bean via @Bean either in main spring class (Exp17cSpringBootH2JdbcTemplateJpaRestJUnit5LombokApplication) 
     or a config class (see exp17c.config.SwaggerConfig)
 - add API details as annotations to APIs code
-  - add REST end point details using @ApiOperation, @ApiParam into code (see exp17c.rest.StaffRestController)
+  - add REST end point details using @ApiOperation, @ApiParam into code (see echoMessage 
+  REST api end point of exp17c.rest.EmployeeRestController, 
+  exp17c.rest.StaffRestController)
   - add model details of model classes used by REST end points using @ApiModel, @ApiModelProperty 
     (see exp17c.jpa.model.Staff)
 
