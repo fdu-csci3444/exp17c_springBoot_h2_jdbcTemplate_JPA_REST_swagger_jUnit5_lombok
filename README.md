@@ -15,6 +15,8 @@ Example SpringBoot project showing;
 - jUnit5 to unit and integration test
 - using lombok to instrument(auto generate) setter/getter/constructor/.. of a POJO via 
   lombok annotations
+- using spring-boot-devtools (see pom.xml), which watches changes in code and triggers auto deployments of app upon saved 
+code changes, will ONLY be in effect during dev runs, will NOT be there in PROD jar build
 
 ## using h2 as in memory RDBMS (Relational DB Management System)
 - to access h2-console via browser with default values go to (assuming server.port=8888) 
