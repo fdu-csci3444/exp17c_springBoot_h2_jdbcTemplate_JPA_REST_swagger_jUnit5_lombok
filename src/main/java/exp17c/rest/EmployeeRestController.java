@@ -6,6 +6,8 @@ package exp17c.rest;
 import java.util.List;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -33,6 +35,8 @@ import io.swagger.annotations.ApiParam;
 //@RequestMapping(path = "/rest/${my.app.values.api.version}/employee")	// TODO ilker makeMeWork
 @RequestMapping(path = "/rest/v1/employee")
 public class EmployeeRestController {
+	private static final Logger logger = LoggerFactory.getLogger(EmployeeRestController.class);
+
 	@Autowired
 	@Qualifier("employeeDAOImpl")
 	private EmployeeDAO employeeDAO;
@@ -51,6 +55,7 @@ public class EmployeeRestController {
 	public String echoMessage(@ApiParam(value = "optional message value to pass", required = false) @RequestParam(value="msg", defaultValue="Hello ilker") String message) {
 	// NOTE ilker below is without optional swagger api param info. Above is equivalent to below enhanced with swagger param info
 //	public String echoMessage(@RequestParam(value="msg", defaultValue="Hello ilker") String message) {
+		logger.debug("echoMessage with message:{}", message);
 		return "echoMessage echoed: " + message;
 	}
 
