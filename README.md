@@ -18,6 +18,10 @@ Example SpringBoot project showing;
 - using spring-boot-devtools (see pom.xml), which watches changes in code and triggers auto deployments of app upon saved 
 code changes, will ONLY be in effect during dev runs, will NOT be there in PROD jar build
 
+## RDBMS schema creation via schema.sql and initializing via data.sql
+- important note; turns out jpa schema creation along with schema.sql, then using data.sql will not work. data.sql gets executed after schema.sql, but before jpa updates schema
+- so data.sql insert lines for JPA table will throw exception, if table that jpa would have created is not created in schema.sql 1st
+
 ## using h2 as in memory RDBMS (Relational DB Management System)
 - to access h2-console via browser with default values go to (assuming server.port=8888) 
 
