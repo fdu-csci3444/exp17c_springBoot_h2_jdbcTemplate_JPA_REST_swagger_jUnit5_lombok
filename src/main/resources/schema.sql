@@ -13,7 +13,10 @@ CREATE TABLE IF NOT exists employee
 -- EOF creating tables used by jdbcTemplate in h2 db
 
 -- BEF creating tables used by jpa in h2 db
--- assuming below line is set to default value of none or update in application.properties file
+-- NOTE ilker important note. Insert lines in data.sql will fail and app not start if jpa table is not created in schema.sql below.
+--      Turns out jpa schema creation along with schema.sql, then using data.sql will not work. data.sql gets executed after schema.sql, but before jpa updates schema
+--      So below without below lines data.sql insert into JPA table will throw exception when table that jpa would have created is not created in schema.sql 1st below
+-- NOTE ilker assuming below line is set to default value of none or update in application.properties file
 -- spring.jpa.hibernate.ddl-auto=none
     CREATE TABLE IF NOT EXISTS staff (
        id bigint not null,
