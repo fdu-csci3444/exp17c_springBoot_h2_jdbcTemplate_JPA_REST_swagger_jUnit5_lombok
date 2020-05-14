@@ -1,4 +1,7 @@
 -- BEF creating tables used by jdbcTemplate in h2 db
+-- NOTE ilker if you are using file stored h2 (or any other file based RDBMS), then you should have below line as well
+DROP TABLE IF exists employee;
+
 CREATE TABLE IF NOT exists employee
 (
 --	id int auto_increment          PRIMARY KEY,   -- NOTE ilker equivalent to below line. NOTE ilker if id is not provided in insert, an auto generated value from a sequence will be used
@@ -8,7 +11,7 @@ CREATE TABLE IF NOT exists employee
 --	id int IDENTITY NOT NULL,
 --	PRIMARY KEY(id),
 	first_name varchar(12) NOT NULL,
-	last_name varchar(12) NOT null
+	last_name varchar(12) NOT NULL
 );
 -- EOF creating tables used by jdbcTemplate in h2 db
 
