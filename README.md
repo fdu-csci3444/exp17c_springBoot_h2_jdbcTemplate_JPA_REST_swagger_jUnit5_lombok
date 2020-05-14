@@ -47,6 +47,24 @@ in a class via lombok annotations
 - see exp17c.jdbctemplate.model.Employee
 - see exp17c.jpa.model.Staff 
 
+### lombok setup of STS
+- make sure your project's build path is using JDK (not JRE)
+- First run your program as Maven Install. If Lombok is not generating anything or if you don't see lombok generated methods in the "outline" window when you look at the lombok annotated class, then you need to configure Lombok with STS following below steps?????????????;
+- Locate the directory(basically local maven repository directory, ~/.m2) where Lombok-1.x.y.jar is at (1.x.y is the version)
+	+ In my case, it was <br>
+	  C:\Users\MyName\.m2\repository\org\projectlombok\lombok\1.18.12
+	+ Open up command prompt and type: cd Path_To_Directory(Whatever the path is toLombok.jar)
+	+ Then type java -jar lombok-1.x.y.jar
+	+ An installer for Lombok will pop up. Hit Specify Location
+	+ The location should be the Spring Tool Suite.exei. Mine was located at: <br>
+      C:\Program Files\Spring Tool\sts-4.5.1.RELEASE
+	+ Hit Install/Update after, and then Quit Installer
+- Launch Spring Tool
+	+ Right Click Project-&gt;Maven-&gt;Update Project
+	+ Right Click Project-&gt;Run As-&gt;Maven Clean
+	+ Right Click Project-&gt;Run As-&gt;Maven Install
+- Lombok should work now in STS. You should see lombok generated methods in "outline" window located on right side of STS when you open a lombok annotated class. You should be able access those methods using instance of that Class in other parts of code.
+
 ## creating REST webservice api end points(resources)
 - see exp17c.rest.EmployeeRestController
 - see exp17c.rest.StaffRestController
